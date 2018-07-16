@@ -8,9 +8,8 @@ import AddInventory from './Components/AddInventory/AddInventory';
 export default (
   <Switch>
     <Route exact path='/' component={Home}/>
-    <Route path='/binlist' component={BinList}/>
-    <Route path='/inventory' component={InventoryDetails}/>
-    <Route path='/add' component={AddInventory}/>
-
+    <Route path='/binlist/:shelf' component={BinList}/>
+    <Route path='/inventory/:shelf/:id' component={InventoryDetails}/>
+    <Route path='/add/:shelf/:id' component={AddInventory}/>
   </Switch>
 )
