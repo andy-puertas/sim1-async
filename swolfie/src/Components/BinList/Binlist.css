@@ -1,0 +1,20 @@
+.bind-button-container {
+  margin-left: 50px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bin-button {
+  width: 50%;
+  height: 70px;
+  text-align: left;
+  background-color: #ED6B5a;
+  color: white;
+  margin: 40px;
+  padding-left: 125px;
+  display: block; 
+  font-size: 3.0em;
+  border-radius: 7px;
+  opacity: 1;
+}

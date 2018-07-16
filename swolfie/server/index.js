@@ -13,12 +13,17 @@ app.use( bodyParser.json() );
 app.use( cors() );
 
 
-
-
 const {
   SERVER_PORT,
   CONNECTION_STRING
 } = process.env;
+
+
+// ENDPOINTS
+
+app.get('/api/bins/:shelfid', ctrl.bins);
+app.get('/api/item/:shelfid/:binid', ctrl.binDeets)
+
 
 
 app.listen(SERVER_PORT, () => {
