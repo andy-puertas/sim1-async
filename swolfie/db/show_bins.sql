@@ -1,2 +1,2 @@
-SELECT binID FROM shelfies 
-WHERE shelfID = $1;
+SELECT bin FROM shelfies 
+WHERE shelf = $1;

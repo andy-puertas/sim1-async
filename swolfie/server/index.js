@@ -21,8 +21,8 @@ const {
 
 // ENDPOINTS
 
-app.get('/api/bins/:shelfid', ctrl.bins);
-app.get('/api/item/:shelfid/:binid', ctrl.binDeets)
+app.get('/api/bins/:shelf', ctrl.bins);
+app.get('/api/item/:shelf/:bin', ctrl.binDeets)
 
 
 

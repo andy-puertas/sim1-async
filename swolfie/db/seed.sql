@@ -1,8 +1,8 @@
 
 -- CREATE TABLE shelfies (
 --    id SERIAL PRIMARY KEY,
---    shelfID TEXT,
---    binID INTEGER,
+--    shelf TEXT,
+--    bin INTEGER,
 --    name TEXT,
 --    price DECIMAL,
 --    img TEXT
@@ -10,7 +10,7 @@
 
 
 -- INSERT INTO shelfies
--- (shelfID, binID, name, price, img)
+-- (shelf, bin, name, price, img)
 -- VALUES 
 --    ('A', 1, 'Lamp', 13.00, 'http://www.thepeanutshell.com/sca/mapped_images/LPPSBLPC.0.jpg?resizeid=2&resizeh=256&resizew=256')
 --    ('B', 1, 'Skateboard', 20.00, 'https://static.myfigurecollection.net/pics/figure/big/170934.jpg' ),
