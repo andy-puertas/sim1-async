@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import './Binlist.css'
+import './Binlist.css';
 
 export default class BinList extends Component {
   constructor() {

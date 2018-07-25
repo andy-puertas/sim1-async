@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Components/Header/Header';
 import routes from './routes'
 import './App.css';
+import './reset.css';
 
 class App extends Component {
   render() {
