@@ -23,6 +23,7 @@ const {
 
 app.get('/api/bins/:shelf', ctrl.bins);
 app.get('/api/item/:shelf/:bin', ctrl.binDeets);
+app.put('/api/item/:shelf/:bin', ctrl.edit);
 
 
 

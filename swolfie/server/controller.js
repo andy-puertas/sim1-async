@@ -19,6 +19,21 @@ module.exports = {
       .catch( (err) => {
         console.log(err)
         res.status(500).send('error')} )
-  }  
+  },
+  
+  edit: (req, res) => {
+    const db = req.app.get('db');
+    let price = parseInt(req.body.price).toFixed(2);
+    const {name, img} = req.body;
+    const {shelf, bin} = req.params;
+
+
+    db.edit_bin([name, price, img, shelf, bin])
+    .then( shelfies => res.status(200).send( shelfies ) )
+    .catch( (err) => {
+      console.log(err)
+      res.status(500).send('error')} )
+  }
+
 
 }
