@@ -33,6 +33,17 @@ module.exports = {
     .catch( (err) => {
       console.log(err)
       res.status(500).send('error')} )
+  },
+
+  delete: (req, res) => {
+    const db = req.app.get('db');
+    const {shelf, bin} = req.params;
+
+    db.delete_bin([shelf, bin])
+    .then( shelfies => res.status(200).send( shelfies ) )
+    .catch( (err) => {
+      console.log(err)
+      res.status(500).send('error')} )
   }
 
 

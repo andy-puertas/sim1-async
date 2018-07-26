@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -12,7 +13,8 @@ export default class InventoryDetails extends Component {
       disabled: true
     }
     this.editToggle = this.editToggle.bind( this );
-    this.handleSave = this.handleSave.bind( this )
+    this.handleSave = this.handleSave.bind( this );
+    this.delete = this.delete.bind( this );
   }
 
   componentDidMount() {
@@ -34,13 +36,13 @@ export default class InventoryDetails extends Component {
     })
   }
 
-  handleNameChange(val){
+  handleNameChange(val) {
     this.setState({
       name: val
     })
   }
 
-handlePriceChange(val){
+  handlePriceChange(val) {
     this.setState({
       price: val
     })
@@ -49,7 +51,7 @@ handlePriceChange(val){
 
   handleSave() {
     axios.put(`/api/item/${this.props.match.params.shelf}/${this.props.match.params.id}`,
-    {name: this.state.name, price: this.state.price})
+    {name: this.state.name, price: this.state.price, img: this.state.img})
     .then( res => {
       console.log(res.data);
       this.setState({
@@ -58,6 +60,13 @@ handlePriceChange(val){
         img: res.data[0].img,
         disabled: true
       })
+    })
+  }
+
+  delete() {
+    axios.delete(`/api/item/${this.props.match.params.shelf}/${this.props.match.params.id}`)
+    .then( res => {
+      console.log(res.data);
     })
   }
 
@@ -77,23 +86,25 @@ handlePriceChange(val){
                             disabled={this.state.disabled}
                             value={this.state.name}/>
                   <h2 className="input-label">Price</h2>
-                    <div className="dollar-symbol">
                       <input onChange={ (e) => this.handlePriceChange( e.target.value ) } 
                                 type="number"
                                 className="input-price-box"
                                 disabled={this.state.disabled}
                                 value={this.state.price}/>
-                    </div>
               </div>
               { this.state.disabled === true ?   
                 <div className="inv-btn-wpr">
-                    <button onClick={this.editToggle} className="inv-edit-btn">Edit</button> 
-                    <button className="inv-del-btn">Delete</button> 
+                    <button onClick={this.editToggle} className="inv-edit-btn">Edit</button>
+                    <Link to ={`/binlist/${this.props.match.params.shelf}`}> 
+                      <button onClick={this.delete} className="inv-del-btn">Delete</button> 
+                    </Link>
                 </div>
                   :
                     <div className="inv-btn-wpr">
-                      <button onClick={this.handleSave} className="inv-save-btn">Save</button> 
-                      <button className="inv-del-btn">Delete</button>
+                      <button onClick={this.handleSave} className="inv-save-btn">Save</button>
+                      <Link to ={`/binlist/${this.props.match.params.shelf}`}>  
+                        <button onClick={this.delete} className="inv-del-btn">Delete</button>
+                      </Link>
                     </div>
               }
                                 
