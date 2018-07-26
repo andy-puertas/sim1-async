@@ -22,7 +22,7 @@ const {
 // ENDPOINTS
 
 app.get('/api/bins/:shelf', ctrl.bins);
-app.get('/api/item/:shelf/:bin', ctrl.binDeets)
+app.get('/api/item/:shelf/:bin', ctrl.binDeets);
 
 
 
