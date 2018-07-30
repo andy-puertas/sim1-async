@@ -13,9 +13,18 @@ export default class BinList extends Component {
 
   componentDidMount() {
     axios.get(`/api/bins/${this.props.match.params.shelf}`).then( res => {
-      console.log(res.data);                             
+      console.log(res.data);
+      // let bins = res.data.map((obj) => obj.bin)
+      // let newBinArray = Array(5).fill(null).map((e, i) => {  
+      //   if(bins.includes(i + 1)){                          
+      //     return i + 1                                       
+      //   }
+      //   else{
+      //     return null;                                     
+      //   }
+      // })                              
       this.setState({ 
-        binnies: res.data 
+        binnies: res.data
       });               
     });
   }
