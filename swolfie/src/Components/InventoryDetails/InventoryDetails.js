@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './InventoryDetails.css';
 import axios from 'axios';
 
 
@@ -69,6 +70,7 @@ export default class InventoryDetails extends Component {
       console.log(res.data);
     })
   }
+  
 
 
   render() {
