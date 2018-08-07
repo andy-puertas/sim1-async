@@ -24,13 +24,10 @@ module.exports = {
   
   edit: (req, res) => {
     const db = req.app.get('db');
-    const params = [
-        req.body.name,
-        req.body.price,
-        req.params.id,
-    ]
+    const {name, price} = req.body;
+    const {id} = req.params;
 
-    db.edit_bin(+params)
+    db.edit_bin([name, price, id])
     .then( swolfinal => 
       res.status(200).send( swolfinal ) )
     .catch( (err) => {
@@ -40,11 +37,11 @@ module.exports = {
 
   create: (req, res) => {
     const db = req.app.get('db');
-    let price = pasrseInt(req.body.price).toFixed(2);
-    const {name, img} = req.body;
-    const {shelf, bin} = req.params;
+   
+    const {name, price, image} = req.body;
+    const {id} = req.params;
 
-    db.create_bin([shelf, bin, name, price, img])
+    db.create_bin([name, price, image, id])
     .then( swolfinal => 
       res.status(200).send( swolfinal ) )
     .catch( (err) => {
