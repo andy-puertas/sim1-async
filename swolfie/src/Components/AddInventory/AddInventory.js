@@ -60,7 +60,14 @@ export default class AddInventory extends Component {
     }
 
     axios.post(`/api/bin/` + id, newInv).then( res => {
-      console.log('Added')
+      console.log('Added');
+    })
+    
+    axios.get(`/api/bin/` + id).then( res => {
+      console.log(res.data);
+      this.setState({
+        itemArr: res.data[0]
+      })
     })
   }
 

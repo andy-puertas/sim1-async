@@ -79,6 +79,12 @@ export default class InventoryDetails extends Component {
       console.log('Deleted !');
       //res.data;
     })
+    axios.get(`/api/bin/` + id).then( res => {
+      console.log(res.data);
+      this.setState({
+        item: res.data[0]
+      })
+    })
   }
   
 
