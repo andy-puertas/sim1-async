@@ -24,12 +24,13 @@ module.exports = {
   
   edit: (req, res) => {
     const db = req.app.get('db');
-    let price = parseInt(req.body.price).toFixed(2);
-    const {name, img} = req.body;
-    const {shelf, bin} = req.params;
+    const params = [
+        req.body.name,
+        req.body.price,
+        req.params.id,
+    ]
 
-
-    db.edit_bin([name, price, img, shelf, bin])
+    db.edit_bin(+params)
     .then( swolfinal => 
       res.status(200).send( swolfinal ) )
     .catch( (err) => {
@@ -53,9 +54,8 @@ module.exports = {
 
   delete: (req, res) => {
     const db = req.app.get('db');
-    const {shelf, bin} = req.params;
 
-    db.delete_bin([shelf, bin])
+    db.delete_bin([req.params.id])
     .then( swolfinal => 
       res.status(200).send( swolfinal ) )
     .catch( (err) => {
