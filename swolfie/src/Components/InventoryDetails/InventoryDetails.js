@@ -76,7 +76,8 @@ export default class InventoryDetails extends Component {
   delete() {
     let id = this.props.match.params.id;
     axios.delete(`/api/bin/` + id).then(res => {
-      console.log('Deleted !')
+      console.log('Deleted !');
+      //res.data;
     })
   }
   
@@ -134,7 +135,7 @@ export default class InventoryDetails extends Component {
                 :  
                   <button id='save-button' onClick={this.handleSave}>Save</button>
                 }
-                <Link to={`/api/binlist/${item.shelf}`}>
+                <Link to={`/binlist/${item.shelf}`}>
                   <button onClick={this.delete}>Delete</button>
                 </Link>
 
