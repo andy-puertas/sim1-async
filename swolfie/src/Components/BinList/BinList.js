@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import logo from '../Assets/logo.png';
 import './Binlist.css';
 
 export default class BinList extends Component {
@@ -12,17 +13,9 @@ export default class BinList extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/bins/${this.props.match.params.shelf}`).then( res => {
-      console.log(res.data);
-      // let bins = res.data.map((obj) => obj.bin)
-      // let newBinArray = Array(5).fill(null).map((e, i) => {  
-      //   if(bins.includes(i + 1)){                          
-      //     return i + 1                                       
-      //   }
-      //   else{
-      //     return null;                                     
-      //   }
-      // })                              
+    let id = this.props.match.params.id;
+    axios.get(`/api/shelf/` + id).then( res => {
+      console.log(res.data);                           
       this.setState({ 
         binnies: res.data
       });               
@@ -33,33 +26,40 @@ export default class BinList extends Component {
   
   render() {
     console.log(this.state);
-      let binsListings = this.state.binnies.map((e,i) => {         
-        if(e === null) {
-          return(
-            <div className="add-inventory-button-container" key={"empty"+i}>
-              <button className="add-inventory-button"> + Add Inventory </button>
-            </div>
-                  
-              )
-        }
-          else {
-            return (
-              <Link to={`/inventory/${this.props.match.params.shelf}/${i+1}`} key={"full"+i}>      
-                  <button className="bin-button"> Bin {i+1} </button>
-              </Link>  
-          )  
-      }
-  })
+      const binsListings = this.state.binnies.map((bin ,i) => (         
+      <div key={i} className='shelfListContainer'>
+          {
+            !bin.name ?
+            <Link to={`/add/${this.props.match.params.id + (i + 1)}`} className='addInvButton'>
+              <h1>+ Add Inventory</h1>
+            </Link>
+            :
+            <Link to={`/inventory/${this.props.match.params.id + bin.bin}`} className='bin-list'>
+              <h1>Bin {bin.bin}</h1>
+            </Link>
+          }
+      </div>
+  ))
+
                         
                       
 
 
   return (
     <div>
-      <div className='bin-button-container'>
+      <nav className='nav-container'>
+        <div className='binListNav'>
+        <Link to={`/`}>
+          <img src={ logo } alt='shelfie-logo' />
+        </Link>
+        </div>
+        <div className='binListShelf'>
+          <h1>Shelf {this.props.match.params.id}</h1>
+        </div>
+      </nav>
         {binsListings}
-      </div>
     </div>
     )
   }
 }
+

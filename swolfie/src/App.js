@@ -7,7 +7,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         { routes }
       </div>
     );
@@ -15,3 +14,4 @@ class App extends Component {
 }
 
 export default App;
+

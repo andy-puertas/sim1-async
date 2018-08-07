@@ -1,20 +1,69 @@
-.bind-button-container {
-  margin-left: 50px;
-  margin-top: 10px;
+.shelfListContainer {
   display: flex;
+  align-items: center;
   flex-direction: column;
+  margin-top: 18px;
 }
 
-.bin-button {
-  width: 50%;
-  height: 70px;
-  text-align: left;
-  background-color: #ED6B5a;
-  color: white;
-  margin: 40px;
-  padding-left: 125px;
-  display: block; 
-  font-size: 3.0em;
-  border-radius: 7px;
-  opacity: 1;
+
+.addInvButton {
+  height: 60px;
+  width: 500px;
+  background-color: #ffb8af;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 30px;
+  padding-left: 90px;
+  text-decoration: none;
+  border: none;
+  outline: none;
 }
+
+
+.bin-list {
+  height: 60px;
+  width: 500px;
+  background-color: #ed6b5a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  padding-left: 90px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.binListNav {
+  height: 80px;
+  width: 20%;
+  background: #ab2a19;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.binListNav img {
+  width: 50px;
+}
+
+.binListShelf {
+  width: 80%;
+  height: 80px;
+  background: #d34735;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+

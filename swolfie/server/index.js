@@ -21,11 +21,11 @@ const {
 
 // ENDPOINTS
 
-app.get('/api/bins/:shelf', ctrl.bins);
-app.get('/api/item/:shelf/:bin', ctrl.binDeets);
-app.post('/api/item/:shelf/:bin', ctrl.create)
-app.put('/api/item/:shelf/:bin', ctrl.edit);
-app.delete('/api/item/:shelf/:bin', ctrl.delete)
+app.get('/api/shelf/:id', ctrl.bins);
+app.get('/api/bin/:id', ctrl.binDeets);
+app.post('/api/bin/:id', ctrl.create)
+app.delete('/api/bin/:id', ctrl.delete)
+app.put('/api/bin/:id', ctrl.edit);
 
 
 app.listen(SERVER_PORT, () => {

@@ -3,9 +3,9 @@ module.exports = {
   bins: (req, res) => {
     const db = req.app.get('db');
 
-    db.show_bins([req.params.shelf])
-      .then( shelfies => 
-        res.status(200).send( shelfies ) )
+    db.show_bins([req.params.id])
+      .then( swolfinal => 
+        res.status(200).send( swolfinal ) )
       .catch( (err) => {
         console.log(err)
         res.status(500).send('error')} )
@@ -13,11 +13,10 @@ module.exports = {
 
   binDeets: (req, res) => {
     const db = req.app.get('db');
-    const {shelf, bin} = req.params;
 
-    db.bin_details([shelf, bin])
-      .then( shelfies => 
-        res.status(200).send( shelfies ) )
+    db.bin_details([req.params.id])
+      .then( swolfinal => 
+        res.status(200).send( swolfinal ) )
       .catch( (err) => {
         console.log(err)
         res.status(500).send('error')} )
@@ -31,8 +30,8 @@ module.exports = {
 
 
     db.edit_bin([name, price, img, shelf, bin])
-    .then( shelfies => 
-      res.status(200).send( shelfies ) )
+    .then( swolfinal => 
+      res.status(200).send( swolfinal ) )
     .catch( (err) => {
       console.log(err)
       res.status(500).send('error')} )
@@ -45,8 +44,8 @@ module.exports = {
     const {shelf, bin} = req.params;
 
     db.create_bin([shelf, bin, name, price, img])
-    .then( shelfies => 
-      res.status(200).send( shelfies ) )
+    .then( swolfinal => 
+      res.status(200).send( swolfinal ) )
     .catch( (err) => {
         console.log(err)
         res.status(500).send('error')} )
@@ -57,8 +56,8 @@ module.exports = {
     const {shelf, bin} = req.params;
 
     db.delete_bin([shelf, bin])
-    .then( shelfies => 
-      res.status(200).send( shelfies ) )
+    .then( swolfinal => 
+      res.status(200).send( swolfinal ) )
     .catch( (err) => {
       console.log(err)
       res.status(500).send('error')} )
