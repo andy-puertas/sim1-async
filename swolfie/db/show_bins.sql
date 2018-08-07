@@ -1,2 +1,3 @@
-SELECT bin FROM shelfies 
-WHERE shelf = $1;
+SELECT * FROM swolfinal
+WHERE shelf = $1
+ORDER BY bin ASC;

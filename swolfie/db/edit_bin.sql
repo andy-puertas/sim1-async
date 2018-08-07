@@ -1,5 +1,4 @@
 UPDATE shelfies
-SET name = $1, price = $2, img = $3
-WHERE shelf = $4 
-AND bin = $5
+SET name = $2, price = $3
+WHERE id = $1
 RETURNING *;

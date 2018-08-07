@@ -1,3 +1,6 @@
-INSERT INTO shelfies (shelf, bin, name, price, image)
-VALUES ($1, $2, $3, $4, $5)
+UPDATE bins
+SET item = $1, 
+price = $2, 
+image = $3
+WHERE id = $4
 RETURNING *;

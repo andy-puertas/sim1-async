@@ -1,3 +1,6 @@
-DELETE FROM shelfies
-WHERE shelf = $1
-AND bin = $2;
+UPDATE swolfinal
+SET name = null,
+price = null,
+image = null,
+WHERE id = $1
+RETURNING *

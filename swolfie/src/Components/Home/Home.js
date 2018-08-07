@@ -1,25 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import logo from '../Assets/logo.png'; 
 import './Home.css';
 
-let shelves = ['A', 'B', 'C', 'D'];
 
-let shelfList = shelves.map((e, i) => {
-  return (
-    <Link to={`/binlist/${e}`} key={i}>
-      <button key={i} className="shelf-button"> Shelf {e}</button>
-    </Link>  
-  )
-}) 
+export default class Home extends Component {
+  render() {
+    return (
+      <div>
+        <nav className='home-nav'>
+          <div className='logo-container'>
+            <img src={ logo } alt='shelfie-logo' />
+            <h1>SHELFIE</h1>
+          </div>
+        </nav>
 
-export default function Home () {
-  return (
-    <div>
         <div className='shelves-container'>
-           {shelfList}
-        </div>
-    </div>
-  )
+          <Link to={`/binlist/A`} className='shelf-list'>
+            <h1>Shelf A</h1>
+          </Link>
 
-  
+          <Link to={`/binlist/B`} className='shelf-list'>
+            <h1>Shelf B</h1>
+          </Link>
+
+          <Link to={`/binlist/C`} className='shelf-list'>
+            <h1>Shelf C</h1>
+          </Link>
+
+          <Link to={`/binlist/D`} className='shelf-list'>
+            <h1>Shelf D</h1>
+          </Link>
+
+        </div>
+      </div>
+    )
+  }
 }
+
+        
+

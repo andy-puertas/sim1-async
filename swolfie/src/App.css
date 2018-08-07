@@ -1,16 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 .App {
-  text-align: center;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
   background-color: white;
 }
 
 
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
 
